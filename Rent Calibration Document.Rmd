@@ -141,6 +141,7 @@ The maximum entropy spatial interaction model is derived and shown to incorporat
   + Section 8: A demonstration of the method being used to derive airBnB accessibilities to tourist destinations in London
   + Section 9: A discussion of accessibility and its equivalence to rent
   + Section 10: Conclusions
+  + Appendix
 
 
 
@@ -576,6 +577,17 @@ The deterrence function in \autoref{eq:hansen} reflects the diminishing number o
   We have shown that the gravity model can be calibrated against the balancing factors. This should not be a surprise since the more usual method of calibration against mean trip cost uses only one parameter whereas the the number of (origin) balancing factors equals the number of zones. We have shown that the J-divergence is an effective statistic to minise in order to achieve a good fit. We have demonstrated theoretically the relation between balancing factors and location rent which we argue is a good measure of accessibility.  This has been used in an application to determine accessibilities of airBnB properties in London which seems to perform well and is shown elsewhere to perform rather better than other indices.
   The use of this method in transportation practice may be not so much to relace mean trip cost calibration but rather to update models continuously as new rent patterns are observed.  Within LUTI practice it is not clear that the property price iterations are consistent with the gravity rents or by implication, the underlying model itself. The recognition of rent within the gravity model lays the basis for a dynamic based on trip cost reduction followed by increased rent and hence densification with consequent increase in the need for further trip cost reduction.
 
+# Appendix
+
+ In equations \autoref{eq:modelZdivided} and \autoref{eq:bfi} we have assumed that the expression $\sum_{i}\sum_{j}e^{-\lambda_{i}}e^{-\lambda_{j}}e^{-\beta c_{ij}}$ factorises.  This is possible because $\sum_{i}\sum_{j}e^{-\beta c_{ij}}$ is a constant which can be absorbed into a new deterrence function $\frac{e^{-\beta c_{ij}}}{\sum_{i}\sum_{j}e^{-\beta c_{ij}}}$. This leaves the denominator as the outer product of two vectors $e^{-\lambda_{i}}$ and $e^{-\lambda_{j}}$ thus
+ 
+\begin{equation}
+\label{eq:outerproduct}
+\sum_{i}\sum_{j}e^{-\lambda_{i}}e^{-\lambda_{j}}=\sum_{i}\sum_{j}e^{-\lambda_{i}}\otimes e^{-\lambda_{i}}=\sum_{i}e^{-\lambda_{i}}.\sum_{j}e^{-\lambda_{j}}
+\end{equation}
+
+
+This gives the factorisation as sought in equation \autoref{eq:modelZdivided}.
 
 
 # References
