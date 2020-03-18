@@ -4,17 +4,18 @@ title: "Gravity Model Calibration by Rent"
 author: "Robin Morphet"
 date: "02/07/2019"
 output:
-  pdf_document:
-    number_sections: true
   html_document: 
     number_sections: true
+  pdf_document:
+    number_sections: true
 bibliography: mybib.bib
+keep_tex: true
 ---
   
   ```{r echo = FALSE}
 #the following packages should load automatically
-#library(knitr)
-library(here)
+library(knitr)
+suppressMessages(library(here))
 library(rlist)
 knitr::opts_chunk$set(echo = FALSE)
 ```
@@ -99,13 +100,13 @@ n<-length(vecs)
 #print(n)
 zerovec <- rep(1,length(vecs[[1]]))
 #print(length(zerovec))
-for( i in 1:n)
+for(i in 1:n)
 {
-index <- which(vecs[[i]]>0)
+index <- which(vecs[[i]] > 0)
 #print(index)
 zog <- rep(0,length(vecs[[1]]))
-zog[index] <-1
-zerovec <-zerovec*zog
+zog[index] <- 1
+zerovec <- zerovec*zog
 #print(zerovec)
 }
 return(zerovec)
@@ -114,15 +115,14 @@ return(zerovec)
 
 ```
 
-
-#Read Data
 ```{r readInData}
-costData<-c( 10.0, 14.1, 14.1, 14.1, 14.1, 14.1, 10, 20, 28.3, 20, 14.1, 20, 10, 20, 28.3, 14.1, 28.3, 20, 10, 20, 14.1, 20, 28.3, 20, 10)
-dim(costData)<-c(5,5)
+#Read Data
+costData <- c( 10.0, 14.1, 14.1, 14.1, 14.1, 14.1, 10, 20, 28.3, 20, 14.1, 20, 10, 20, 28.3, 14.1, 28.3, 20, 10, 20, 14.1, 20, 28.3, 20, 10)
+dim(costData)<- c(5,5)
 OR <- c(500,500,3000,5000,1000)
 Pi <- OR/sum(OR)
 DE <- c(5000,3000,1000,500,500)
-Pj<- DE/sum(DE)
+Pj <- DE/sum(DE)
 
 ```
 # Introduction
@@ -134,16 +134,17 @@ The maximum entropy spatial interaction model is derived and shown to incorporat
 
   + Section 2: The underlying gravity model is derived using maximum entropy
   + Section 3: The classic von Thünen rent/trip cost model is outlined
-  + Section 4: The comparison of Legendre transforms in both gravity and von Thünen models allows us to identify the von Thünen rent within the gravity model
-  + Section 5: A description of the calibration method using J-divergence and balancing factors
-  + Section 6: A demonstration of calibrating a gravity model using balancing factors 
-  + Section 7: A demonstration of the method being used to derive airBnB accessibilities to tourist destinations in London
-  + Section 8: A discussion of accessibility and its equivalence to rent
-  + Section 9: Conclusions
+  + Section 4: Estimating the rent from the balancing factors
+  + Section 5: The comparison of Legendre transforms in both gravity and von Thünen models allows us to identify the von Thünen rent within the gravity model
+  + Section 6: A description of the calibration method using J-divergence and balancing factors
+  + Section 7: A demonstration of calibrating a gravity model using balancing factors 
+  + Section 8: A demonstration of the method being used to derive airBnB accessibilities to tourist destinations in London
+  + Section 9: A discussion of accessibility and its equivalence to rent
+  + Section 10: Conclusions
 
 
 
-# Deriving the Model
+# Deriving the Gravity Model
 
 The maximum entropy model is derived by Wilson [-@wilson70]. We follow that process but work in probabilities rather than trips because we regard the latter as random variables whereas the probabilities are measures. We begin by constructing the Lagrangian $\mathcal{L}$
 
@@ -161,10 +162,10 @@ Differentiating $\mathcal{L}$ with respect to $p_{ij}$ and setting the result to
 p_{ij}=e^{-\lambda_{0}}e^{-\lambda_{i}}e^{-\lambda_{j}}e^{-\beta c_{ij}}
 \end{equation}
 
-Summing both sides and recognising that $\lambda_{0}$is a constant we find that
+Summing both sides and recognising that $\lambda_{0}$ is a constant we find that
 \begin{equation}
 \label{eq:defnZ}
-e^{-\lambda_{0}}=\sum_{i=1}^{n}\sum_{j=1}^{n}e^{-\lambda_{i}}e^{-\lambda_{j}}e^{-\beta c_{ij}}=Z
+e^{\lambda_{0}}=\sum_{i=1}^{n}\sum_{j=1}^{n}e^{-\lambda_{i}}e^{-\lambda_{j}}e^{-\beta c_{ij}}=Z
 \end{equation}
 
 We call the constant Z as it corresponds to the partition function of statistical physics and write the model as
@@ -179,35 +180,36 @@ We now take logarithms, multiply by $\frac{-p_{ij}}{\beta}$ and sum over $i,j$ t
 \frac{1}{\beta}S=U+PV-G
 \end{equation}
 
-where S is entropy, U is mean energy, PV is $\frac{\lambda_{i}+\lambda_{j}}{\beta}$ and G is $\ln Z$. These terms are used to show the correspondence of the model to the classical gas model [@callen85] where G is the Gibbs free energy, and PV the product of pressure, P and volume V.
+where S is entropy, U is mean energy, PV is $\frac{\lambda_{i}+\lambda_{j}}{\beta}$ and G is $-\frac{1}{\beta}ln Z$ .  These terms are used to show the correspondence of the model to the classical gas model [@callen85] where G is the free energy and also the Marshallian consumer surplus, and PV the product of pressure, P and volume V.   \autoref{eq:thermoState} is the classical definition of G.
 
 ![Von Thünen plot of Rent v Distance](images/vtRentDistance.png)
   
-![von Th{ünen plot of Rent v Generalised Cost](images/vtRentGenCost.png)
+![von Thünen plot of Rent v Generalised Cost](images/vtRentGenCost.png)
 
 # Deriving the von Thünen Model
 
 The von Thünen model postulates a single city surrounded by a uniform plain. Farmers
 sell all their product in the city. The price of the product is determined by the cost of
 growing it, the cost of transporting it to market and the level of profit. In the model the
-markets clear and the rate of profit is constant This together with the fact that the model
+markets clear and the rate of profit is constant. This together with the fact that the model
 is deterministic and there is only a single purchaser implies that it is a model of perfect
 competition. A more detailed exposition can be found in Puu [-@puu97].
-Figure 1 shows the rent curve against distance. The cost of transport for a farmer
-located at D is given by the slope at B. The overall cost othis produce is AO of which AR
-is rent. We may express this linear relationship as an equation thus
+Figure 1 shows the rent curve against distance.  The rate of cost of transport for a farmer
+located at D is given by the slope at B. Thus the cost of transporting produce to market fom D is AR and 
+the level of rent paid is OR .
+In Figure 2 we substitute generalised cost for distance in common with standard practice in trip modelling[@ortuzar2011modelling]. This equalises AR and OD which gives a slope of -1. We may express this linear relationship as an equation thus:
 
 \begin{equation}
 \label{eq:vTwithGC}
-rent=-generalised.cost + constant
+rent+generalised.cost = constant
 \end{equation}
 
-This is shown in Figure 2 which, by using generalised cost has made AR and OD equal. 
+In terms of the von Thünen model the constant is the distance from the city to his "wilderness".  In more modern terms it is that cost of transport which renders the goods in question too expensive for the market.
 
 
 # Matching the Gravity and von Thünen Models
 
-In the gravity model we have $n$ destinations but in the only von Thünen model we have only one. The table of trips from origin to destination in the gravity model is replaced by a single column showing trips from the origins to the single centre. In the von Thünen model the origin zones are annular rings with the city at their centre. We therefore set up the model adapting equation \autoref{eq:model} with a single destination zone, $k$, and without a destination constraint as all produce is sold.
+In the gravity model we have $n$ destinations but in the von Thünen model we have only one. The table of trips from origin to destination in the gravity model is replaced by a single column showing trips from the origins to the single centre. In the von Thünen model the origin zones are annular rings with the city at their centre. We therefore set up the model adapting equation \autoref{eq:model} with a single destination zone, $k$, and without a destination constraint as all produce is sold.
 
 \begin{equation}
 \label{eq:basicmodelsingle}
@@ -228,7 +230,7 @@ Applying this equation to the straight line graph of figure 2 and equation \auto
 \Psi\left(rent\right)=1.rent+generalised.cost
 \end{equation}
 
-We now determine the equivalent Legendre transform using equation 6 but with $p_{ik}=p_{i}$ a constant as is *Z*. Rearranging and taking logarithms we get $\ln Zp_{i}=-\lambda_{i}-\beta c_{ik}$.
+We now determine the equivalent Legendre transform using equation \autoref{eq:basicmodelsingle} but with $p_{ik}=p_{i}$ a constant as is *Z*. Rearranging and taking logarithms we get $\ln Zp_{i}=-\lambda_{i}-\beta c_{ik}$.
 
 Differentiating with respect to generalised cost to get the Legendre transform gives
 
@@ -244,11 +246,51 @@ Comparing \autoref{eq:legendre} and \autoref{eq:vTLegendre2} we see that
 rent=\frac{\lambda_{i}}{\beta}
 \end{equation}
 
-The rent like the trip cost is a cost per trip. The identification of the balancing factors with rent has a somewhat chequered history. The relationship was initially suggested by Dieter [-@dieter62] but suffered widespread rejection [e.g. @kirby70] although it was resuscitated to an extent in Williams and Senior [-@williamssenior78] who interpreted $\lambda_{i}$and $\lambda_{j}$ as penalty functions in a non linear program method. Alonso [@alonso64] appealed to the von Thünen model in his analysis of the residential housing market around a single centre( implying perfect competition) using a bid rent curve of the kind shown in figure 1. The later identification of von Thünen rent with the balancing factors [@morphet2012thunen] also showed that the polycentric gravity model is a model of imperfect competition.
+The rent like the trip cost is a cost per trip. The identification of the balancing factors with rent has a somewhat chequered history. The relationship was initially suggested by Dieter [-@dieter62] but suffered widespread rejection [e.g. @kirby70] although it was resuscitated to an extent in Williams and Senior [-@williamssenior78] who interpreted $\lambda_{i}$and $\lambda_{j}$ as penalty functions in a non linear program method. Alonso [@alonso64] appealed to the von Thünen model in his analysis of the residential housing market around a single centre( implying perfect competition) using a bid rent curve of the kind shown in figure 1. The later identification of von Thünen rent with the balancing factors [@morphet2012thunen] also showed that the polycentric gravity model is a model of imperfect competition in which the measure of imperfection (reflecting Harberger's triangle[@harberger64]) is given by
 
+\begin{equation}
+\label{eq:imperfection}
+I=\frac{1}{\beta}\sum_{i}\sum_{j}p_{ij}ln\frac{p_{ij}}{p_{i}p_{j}}
+\end{equation}
+
+This is the Mutual Information times $\frac{1}{\beta}$ and $p_{i}$ and $p_{j}$ are origin and destination probabilities, their product giving a trip matrix for the case of zero cost i.e. the case of perfect competition where impediments to trade in the form of trip costs have been removed.
+ 
+# Estimating the rent from the balancing factors
+
+The balancing factors are derived directly from the Furness iteration.  We can rewrite equation \autoref{eq:model} as
+\begin{equation}
+\label{eq:modelZexpanded}
+p_{ij}=\frac{e^{-\lambda_{i}}e^{-\lambda_{j}}e^{-\beta c_{ij}}}{\sum_{i}\sum_{j}e^{-\lambda_{i}}e^{-\lambda_{j}}e^{-\beta c_{ij}}}
+\end{equation}
+which may be rewritten as
+
+\begin{equation}
+\label{eq:modelZdivided}
+p_{ij}=\frac{e^{-\lambda_{i}}e^{-\lambda_{j}}e^{-\beta c_{ij}}}{\sum_{i}e^{-\lambda_{i}}\sum_{j}e^{-\lambda_{j}}\sum_{i}\sum_{j}e^{-\beta c_{ij}}}
+\end{equation}
+
+The denominator of  \autoref{eq:modelZdivided} factorises so we may write for the origin balancing factors $bf_{i}$
+
+\begin{equation}
+\label{eq:bfi}
+bf_{i}=\frac{e^{-\lambda_{i}}}{\sum_{i}e^{\lambda_{i}}}
+\end{equation}
+
+and taking logarithms and the using the $Z$ notation we have
+
+\begin{equation}
+\label{eq:logbfi}
+ln\left(bf_{i}\right)=-\lambda_{i}-ln\left(\sum_{i}e^{-\lambda_{i}}\right)=-\lambda_{i}+Z_{i}
+\end{equation}
+
+To identify $\lambda_{i}$ we take the logarithm of the origin balancing factors which must then be corrected by a constant. This may be based on existing estimates of land values or by identifying a minimum value and adding this to the logged balancing factors.  It should be noted that adding a constant does not affect the value of $p_{ij}$ as it is equivalent to adding a constant to $-\lambda_{i}$ and$-\lambda_{j}$ in \autoref{eq:modelZexpanded} which is present in numerator and denominator and so cancels out.
+
+
+
+ 
 # Calibrating the Gravity Model
 
-The standard method for calibration, i.e. finding the value of $\beta$ is to run the model with varying values of $\beta$ in a search to find that value which gives a mean trip cost sufficiently close to the observed trip cost[@hymanwilson69;@ortuzar2011modelling]. The method of running the model is to use a Furness iteration [@furness65] to balance Origins and Destinations for a given value of $\beta$. This introduces the balancing factors $e^{-\lambda_{i}}e^{-\lambda_{j}}$ of equation 2 which relate to the rents of equation 10. The iteration provides a result in which the balancing factors are unique [Lemma 2 @evans70p19] which ensures that the resulting trip matrix, given $\beta$, is also unique. In the method of calibration by rent, instead of matching observed and modelled mean trip costs, we match observed and modelled rents by minimising the J divergence [@rohde2016j] between them. The J divergence is an information based semimetric measure which satisfies all the conditions for a distance measure apart from the triangle inequality. In particular it is finite,symmetric and decomposable. The J divergence between two probability distributions,$p\left(x_{i}\right)$ and $q\left(y_{i}\right)$ is given by
+The standard method for calibration, i.e. finding the value of $\beta$, is to run the model with varying values of $\beta$ in a search to find that value which gives a mean trip cost sufficiently close to the observed trip cost[@hymanwilson69;@ortuzar2011modelling]. The method of running the model is to use a Furness iteration [@furness65] to balance Origins and Destinations for a given value of $\beta$. This introduces the balancing factors $e^{-\lambda_{i}}e^{-\lambda_{j}}$ of equation 2 which relate to the rents of \autoref{eq:rentBF}. The iteration provides a result in which the balancing factors are unique [Lemma 2 @evans70p19] which ensures that the resulting trip matrix, given $\beta$, is also unique. In the method of calibration by rent, instead of matching observed and modelled mean trip costs, we match observed and modelled rents by minimising the J divergence [@rohde2016j] between them. The J divergence is an information based semimetric measure which satisfies all the conditions for a distance measure apart from the triangle inequality. In particular it is finite,symmetric and decomposable. The J divergence between two probability distributions,$p\left(x_{i}\right)$ and $q\left(y_{i}\right)$ is given by
 
 \begin{equation}
 \label{eq:jeffries}
@@ -259,33 +301,38 @@ J=\frac{1}{2}\sum_{i}\left(p\left(x_{i}\right)-q\left(y_{i}\right)\right)\ln\lef
 
 In this demonstration we use a small model for which we know the value of $\beta$ is 0.1.  We then extract the origin balancing factors which will act as our target distribution. The model is then run for for several values of $\beta$ which are the compared using J divergence and the value of $\beta$ estimated at the point of minimum divergence.Our cost data is given by the 5x5 table:
 
-```{r costdata}
-print(costData)
+```{r costdata, comment=" "}
+rownames(costData) <- as.character(seq(1:5))
+print(knitr::kable(costData, row.names = TRUE,label ="Table 1", col.names= rownames(costData),caption = "Inter Zonal Trip Costs"))
 ```
 the origins Oi and destinations Dj are given by
 
 
-```{r origins}
-print(OR)
+```{r origins, comment=" "}
+
+print(knitr::kable(t(as.matrix(OR)),col.names = rownames(costData),caption = "Origins"))
 Pi <- OR/sum(OR)
 ```
 
-```{r destinations}
-print(DE)
+```{r destinations, comment=" "}
+print(knitr::kable(t(as.matrix(DE)),col.names= rownames(costData),caption = "Destinations"))
 Pj <- DE/sum(DE)
 ```
 We now set the deterrence function matrix
 
-```{r setDFun}
+```{r setDFun, comment=" "}
 seedAry <- exp(-0.1*costData)
-print(seedAry)
+rownames(seedAry) <- as.character(seq(1:5))
+print(knitr::kable(seedAry, row.names = TRUE, col.names= rownames(costData),caption = "Deterence function"))
 ```
 We now iterate the deterrence matrix to the row an column totals which are expressed as probabilities rather than trips and we extract the origin balancing factors:
 
-``` {r iteration}
+``` {r iteration, comment=" "}
 bfResult<- fastFurnessWithBF(Margins_=list(Pi,Pj),seedAry,maxiter=400, closure=0.001)
 orBfs <-bfResult[[2]] [[1]]
-print(orBfs)
+#title = paste0("Balancing Factors ${\Beta}$ = 0.1")
+print(knitr::kable(t(as.matrix(orBfs)),col.names= rownames(costData),caption = "Balancing Factors: Beta = 0.1"))
+
 ```
 We now know our target values of $\beta$ and of the origin balancing factors. It remains for us to construct a search for the value of $\beta$ knowing only the origin balancing factors. 
 
@@ -313,18 +360,16 @@ for (i in 1:length(Z))
 Y<-Y[2:length(Y)]
 ```
 
+This gives us a list of balancing factors for each value of beta. From \autoref{eq:bfi} we see however, that the balancing factors are standardised by their sum.  For this reason it is appropriate to use the J-divergence as the measure of deviation since it too assumes probabilities standardised to sum to 1. We now compute the value of the J divergence for each set of balancing factors. We form the latter into a dataframe the head of which is shown below
 
-This gives us a list of balancing factors for each value of beta. We now compute the value of the J divergence for each set of balancing factors. We form the latter into a dataframe the head of which is shown below
-
-```{r formatBF}
+```{r formatBF, comment=" "}
 i <- length(betaList)
 j <- (length(unlist(Y))/i)
 Y <- unlist(Y)
 dim(Y)<- c(j,i)
 Y <- t(Y)           
 Y<- Y/rowSums(Y)
-
-print(head(Y))
+print(knitr::kable(head(Y), row.names = FALSE, col.names= rownames(costData),caption = "Values of balancing factors by Beta"))
 ```
 
 
@@ -341,22 +386,27 @@ plot(betaList,J, type='l', main= "J-divergence v Beta", xlab="Beta",ylab="J" )
 ```
 
 
-What we have shown in this demonstration is that we can calibrate a gravity model knowing only the balancing factors for the origins.  We know however, from equation \autoref{eq:rentBF} that the balancing factors are a function of rent. In the following section we explore an application in which we construct a surrogate for rent from which is then compared with the balancing factors.  We then seek a minimum J fit as before.
+W e see from the diagram that we have achieved a minimum value of J at the 0.1 value of $\beta$.What we have shown in this demonstration is that we can calibrate a gravity model knowing only the balancing factors for the origins.  We know however, from \autoref{eq:rentBF} that the balancing factors are a function of rent. In the following section we explore an application in which we construct a surrogate for rent from which is then compared with the balancing factors.  We then seek a minimum J fit as before.
 
 # An application
 
-In this application we calibrate using observed rent data as a target in contrast to the synthesised balancing factor data used  in the previous section. The data describes the relation of airBnB sites to popular tourist destination sites in London. The data is at LSOA level which means that some LSOAs  have zero airBnB sites and are therefore ignored.
+In this application we calibrate a gravity model using observed rent data as a target in contrast to the synthesised balancing factor data used  in the previous section. The data describes the relation of airBnB sites to popular tourist destination sites in London. The data is at LSOA level which means that some LSOAs  have zero airBnB sites and are therefore ignored.
 
 We first read in our data using a function 'indata'
-```{r readInData2}
+```{r,warning=FALSE,message=FALSE}
 home <- here::here()
 home <- paste0(home,"/")
-
-indata <- function(file){read.csv(paste(home,file,sep=""))}
+datahome <- paste(home,"data/",sep="")
+indata <- function(file){read.csv(paste(datahome,file,sep=""))}
+#read in number of visitors in each attraction
 DE<-indata("base_destination_data.csv")[,2]
+#read in number of bedrooms in each LSOA
 OR<-indata("sorted_base_origin_data.csv")[,3]
+#read in average bed  cost in each LSOA
 bedCost <- indata("sorted_base_origin_data.csv")[,4]
+#read in bed numbers in each LSOA
 bedNumbers <- indata("sorted_base_origin_data.csv")[,2]
+#read in the LSOA identifiers
 LSOAs<- ((indata("sorted_base_origin_data.csv"))[,1])
 ```
 We then determine an index of LSOAs which have zero airBnB sites and remove them from the data already read in.
@@ -388,7 +438,7 @@ We now construct the target rent which we are trying to match with our model. Th
 ``` {r makeTarget}
 bedCostP <- (bedCost*bedNumbers)/sum(bedCost*bedNumbers)
 ```
-The search range for $\beta$ is then generated.  The particular range chosen is determined by trial and error but in general we would expect to find a value between 0 and 2, [@hymanwilson69]. The model is then run producing balancing factors and a matrix of trips. For each value of $\beta$ a set of statistics is produced.  Of most concernto us here are the J-divergence 
+The search range for $\beta$ is then generated.  The particular range chosen is determined by trial and error but in general we would expect to find a value between 0 and 2, [@hymanwilson69]. The model is then run producing balancing factors and a matrix of trips. For each value of $\beta$ a set of statistics is produced.  Of most concern to us here are the calculated J-divergences.
 
 ``` {r getBetaAndRun}
 betaList <- seq(from=0.001, by=0.0003,length=41)
@@ -400,7 +450,7 @@ for (i in 1:length(betaList))
    BETA <- betaList[i]
    seedAry <-  exp(-BETA*costData)
    bfResult<- fastFurnessWithBF(Margins_=list(Pi,Pj),seedAry,maxiter=3000, closure=0.01)
-   Y <- list.append(Y,bfResult)
+   Y <- rlist::list.append(Y,bfResult)
    #print(i)
    #flush.console()
 }
@@ -423,6 +473,7 @@ rMat <- list.flatten(rMat)
 
 #----------------------------------------------------------------------
 #collate statistics by values of beta
+#the statistics calculated are; U:internal energy or average trip cost, S:entropy of trip matrix, vari:variance of trip cost #matrix, C:sum of trip cost matrix, oRent/dRent:origin/destination rents, J:J-divergence, I:expected information, rentIJ;sum of #rent for zones i and j, Hmean:harmonic mean trip cost, Gmean: geometric mean trip cost
 B <-1
 n <- length(OR)
 N <-sum(OR)
@@ -494,6 +545,7 @@ attach(avB)
 plot_output <- data.frame(rO-min(rO),LSOAs)
 plot(B$Beta,B$J, type='l', main= "J-divergence v Beta", xlab="Beta",ylab="J" )
 ```
+The diagram suggests a value of $\beta$ 0f 0.008.  Knowing this value we can generate the value of the balancing factors and hence of the rent proportions.  These relative rents are taken as relative accessibilities and can be used to generate an accessibility surface in which accessibilities for the zones without AirBnB beds are estimated by interpolation.
 
 # Accessibility
 
