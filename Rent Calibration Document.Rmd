@@ -4,9 +4,9 @@ title: "Gravity Model Calibration by Rent"
 author: "Robin Morphet"
 date: "02/07/2019"
 output:
-  html_document: 
-    number_sections: true
   pdf_document:
+    number_sections: true
+  html_document: 
     number_sections: true
 bibliography: mybib.bib
 keep_tex: true
@@ -143,7 +143,7 @@ The maximum entropy spatial interaction model is derived and shown to incorporat
   + Section 10: Conclusions
   + Appendix
 
-
+This paper is available on https://github.com/robinmorphet/gravity-rent-calibration together with the .Rmd file from which it is compiled and the data and images used.
 
 # Deriving the Gravity Model
 
@@ -270,7 +270,7 @@ which may be rewritten as
 p_{ij}=\frac{e^{-\lambda_{i}}e^{-\lambda_{j}}e^{-\beta c_{ij}}}{\sum_{i}e^{-\lambda_{i}}\sum_{j}e^{-\lambda_{j}}\sum_{i}\sum_{j}e^{-\beta c_{ij}}}
 \end{equation}
 
-The denominator of  \autoref{eq:modelZdivided} factorises so we may write for the origin balancing factors $bf_{i}$
+The denominator of  \autoref{eq:modelZdivided} factorises (see Appendix) so we may write for the origin balancing factors $bf_{i}$
 
 \begin{equation}
 \label{eq:bfi}
@@ -324,7 +324,7 @@ We now set the deterrence function matrix
 ```{r setDFun, comment=" "}
 seedAry <- exp(-0.1*costData)
 rownames(seedAry) <- as.character(seq(1:5))
-print(knitr::kable(seedAry, row.names = TRUE, col.names= rownames(costData),caption = "Deterence function"))
+print(knitr::kable(seedAry, row.names = TRUE, col.names= rownames(costData),caption = "Deterrence function"))
 ```
 We now iterate the deterrence matrix to the row an column totals which are expressed as probabilities rather than trips and we extract the origin balancing factors:
 
@@ -387,7 +387,7 @@ plot(betaList,J, type='l', main= "J-divergence v Beta", xlab="Beta",ylab="J" )
 ```
 
 
-W e see from the diagram that we have achieved a minimum value of J at the 0.1 value of $\beta$.What we have shown in this demonstration is that we can calibrate a gravity model knowing only the balancing factors for the origins.  We know however, from \autoref{eq:rentBF} that the balancing factors are a function of rent. In the following section we explore an application in which we construct a surrogate for rent from which is then compared with the balancing factors.  We then seek a minimum J fit as before.
+We see from the diagram that we have achieved a minimum value of J at the 0.1 value of $\beta$.What we have shown in this demonstration is that we can calibrate a gravity model knowing only the balancing factors for the origins.  We know however, from \autoref{eq:rentBF} that the balancing factors are a function of rent. In the following section we explore an application in which we construct a surrogate for rent from which is then compared with the balancing factors.  We then seek a minimum J fit as before.
 
 # An application
 
@@ -554,12 +554,11 @@ The early reference by Hansen[-@hansen1959accessibility] to accessibility gave a
 
 \begin{equation}
 \label{eq:hansen}
- a_{i}={\displaystyle \sum_{i}^{n}}p_{j}e^{-\beta c_{ij}}
+ a_{i}={\displaystyle \sum_{j}^{n}}p_{j}e^{-\beta c_{ij}}
 \end{equation}
 
-where $a_{i}$ is accessibility.
+where $a_{i}$ is accessibility.This gravity formulation may be contrasted to Hansen's original in which $c_{ij}$ was distance and $\alpha$ equalled $2$
 
-This gravity formulation may be contrasted to Hansen's original in which $c_{ij}$ was distance and $\alpha$ equalled $2$
 \begin{equation}
 \label{eq:hansen2}
  a_{i}=\sum_{j}\dfrac{D_{j}}{c_{ij}^{\alpha}}
@@ -567,7 +566,7 @@ This gravity formulation may be contrasted to Hansen's original in which $c_{ij}
 
 The deterrence function in \autoref{eq:hansen} reflects the diminishing number of trips as $c_{ij}$ increases whereas in \autoref{eq:hansen2} the cost function represents a diminishing appreciation with distance of the destination potentials.    Hansen is arguing on intuitive grounds for a particular set of preferences whereas in the gravity model these are more akin to preferences revealed under the constraints of the model.  
 
-  In practice this measure has been found unsatisfactory [@ortuzar2011modelling]. A review by Srour et al [-@srour2002accessibility] compared accessibility measures with empirically estimated land values confirmed the link between land value and accessibility, particularly to jobs. We are more fortunate in being able to derive the relationship theoretically from the von Thünen assumptions within the gravity model.   Srour was less successful in identifying the appropriate measure of accessibility.  The use of a logsum method proved problematic. Niemeyer [-@niemeier1997accessibility] argued for a logsum method suggesting that the logsum measure of consumer surplus equated to accessibilty.  If we consider accessibility as rent then this is only true if the model is one of perfect competition i.e. of zero transport cost. The gravity model, however, is a model of imperfect competition. The logsum approach is one of utility or value maximisation with the contentions that this brings whilst the gravity model, through rent, is an approach based on cost. 
+  In practice this measure has been found unsatisfactory [@ortuzar2011modelling]. A review by Srour et al [-@srour2002accessibility] which compared accessibility measures with empirically estimated land values confirmed the link between land value and accessibility, particularly to jobs. We are more fortunate in being able to derive the relationship theoretically from the von Thünen assumptions within the gravity model.   Srour was less successful in identifying the appropriate measure of accessibility.  The use of a logsum method proved problematic. Niemeyer [-@niemeier1997accessibility] argued for a logsum method suggesting that the logsum measure of consumer surplus equated to accessibilty.  If we consider accessibility as rent then this is only true if the model is one of perfect competition i.e. of zero transport cost. The gravity model, however, is a model of imperfect competition. The logsum approach is one of utility or value maximisation with the contentions that this brings whilst the gravity model, through rent, is an approach based on cost. 
   
   It may be asked, in relation to the application above why, when we already have a proxy for rent, do we model rent at all?  The answer is that the rent we are modelling is a pure location rent.  The rents observed may reflect many other hedonic attributes such as the presence of local facilities, the age and construction/maintenance costs of the building, the local environment and perceptions of safety from crime. We use the gravity model to extract the pure location rent.
   
@@ -587,7 +586,7 @@ The deterrence function in \autoref{eq:hansen} reflects the diminishing number o
 \end{equation}
 
 
-This gives the factorisation as sought in equation \autoref{eq:modelZdivided}.
+This gives the factorisation as sought in  \autoref{eq:modelZdivided}.
 
 
 # References
