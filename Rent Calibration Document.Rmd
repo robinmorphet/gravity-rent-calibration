@@ -1,7 +1,9 @@
 
 ---
 title: "Gravity Model Calibration by Rent"
-author: "Robin Morphet"
+author:
+ - Robin Morphet
+ - Zahratu Shabrina
 date: "02/07/2019"
 output:
   pdf_document:
@@ -231,7 +233,25 @@ Applying this equation to the straight line graph of figure 2 and equation \auto
 \Psi\left(rent\right)=1.rent+generalised.cost
 \end{equation}
 
-We now determine the equivalent Legendre transform using equation \autoref{eq:basicmodelsingle} but with $p_{ik}=p_{i}$ a constant as is *Z*. Rearranging and taking logarithms we get $\ln Zp_{i}=-\lambda_{i}-\beta c_{ik}$.
+We now determine the equivalent Legendre transform using equation \autoref{eq:basicmodelsingle} but with $p_{ik}=p_{i}$ a constant as is *Z*. Rearranging and taking logarithms we get $\ln Zp_{i}=-\lambda_{i}-\beta c_{ik}$ from which we may write 
+\begin{equation}
+\label{eq:Legendre-in-singly-constrained-1}
+\lambda_{i} + \beta c_{ik} = -lnZp_{ik} = K 
+\end{equation}
+
+where $K$ is a constant.  We may rearrange this expression thus
+
+\begin{equation}
+\label{eq:Legendre-in-singly-constrained-2}
+ c_{ik} = \frac{ K -\lambda_{i}}{\beta}
+\end{equation}
+
+From this we get 
+
+\begin{equation}
+\label{eq:Legendre-in-singly-constrained-3}
+\frac{\delta c_{ik}}{\delta\left(\frac{\lambda_{i}}{\beta}\right)}=-1
+\end{equation}
 
 Differentiating with respect to generalised cost to get the Legendre transform gives
 
@@ -391,7 +411,7 @@ We see from the diagram that we have achieved a minimum value of J at the 0.1 va
 
 # An application
 
-In this application we calibrate a gravity model using observed rent data as a target in contrast to the synthesised balancing factor data used  in the previous section. The data describes the relation of airBnB sites to popular tourist destination sites in London. The data is at LSOA level which means that some LSOAs  have zero airBnB sites and are therefore ignored.
+In this application [@shabrina2020phd] we calibrate a gravity model using observed rent data as a target in contrast to the synthesised balancing factor data used  in the previous section. The data describes the relation of airBnB sites to popular tourist destination sites in London. The data is at LSOA level which means that some LSOAs  have zero airBnB sites and are therefore ignored.
 
 We first read in our data using a function 'indata'
 ```{r,warning=FALSE,message=FALSE}
@@ -564,17 +584,17 @@ where $a_{i}$ is accessibility.This gravity formulation may be contrasted to Han
  a_{i}=\sum_{j}\dfrac{D_{j}}{c_{ij}^{\alpha}}
 \end{equation}
 
-The deterrence function in \autoref{eq:hansen} reflects the diminishing number of trips as $c_{ij}$ increases whereas in \autoref{eq:hansen2} the cost function represents a diminishing appreciation with distance of the destination potentials.    Hansen is arguing on intuitive grounds for a particular set of preferences whereas in the gravity model these are more akin to preferences revealed under the constraints of the model.  
+The deterrence function in \autoref{eq:hansen} reflects the diminishing number of trips as $c_{ij}$ increases whereas in \autoref{eq:hansen2} the cost function represents a diminishing effect with distance of the destination potentials characterised as the size of the relevant activity in that zone. Hansen develops the index for two zones initially and then assumes that this can be extended to more zones by simple addition despite the fact that the denominators differ. Hansen is arguing on intuitive grounds for a particular set of preferences whereas in the gravity model the preferences revealed subject to the constraints of the model.  
 
-  In practice this measure has been found unsatisfactory [@ortuzar2011modelling]. A review by Srour et al [-@srour2002accessibility] which compared accessibility measures with empirically estimated land values confirmed the link between land value and accessibility, particularly to jobs. We are more fortunate in being able to derive the relationship theoretically from the von Thünen assumptions within the gravity model.   Srour was less successful in identifying the appropriate measure of accessibility.  The use of a logsum method proved problematic. Niemeyer [-@niemeier1997accessibility] argued for a logsum method suggesting that the logsum measure of consumer surplus equated to accessibilty.  If we consider accessibility as rent then this is only true if the model is one of perfect competition i.e. of zero transport cost. The gravity model, however, is a model of imperfect competition. The logsum approach is one of utility or value maximisation with the contentions that this brings whilst the gravity model, through rent, is an approach based on cost. 
+  In practice the Hansen measure has been found unsatisfactory [@ortuzar2011modelling]. A review by Srour et al [-@srour2002accessibility] which compared accessibility measures with empirically estimated land values confirmed the link between land value and accessibility, particularly to jobs. We are more fortunate in being able to derive the relationship theoretically from the von Thünen assumptions within the gravity model.   Srour was less successful in identifying the appropriate measure of accessibility.  The use of a logsum method proved problematic. Niemeyer [-@niemeier1997accessibility] argued for a logsum method suggesting that the logsum measure of consumer surplus equated to accessibilty.  If we consider accessibility as rent then this is only true if the model is one of perfect competition i.e. of zero transport cost. The gravity model, however, is a model of imperfect competition. The logsum approach is one of utility or value maximisation with the contentions that this brings whilst the gravity model, through rent, is an approach based on cost. 
   
   It may be asked, in relation to the application above why, when we already have a proxy for rent, do we model rent at all?  The answer is that the rent we are modelling is a pure location rent.  The rents observed may reflect many other hedonic attributes such as the presence of local facilities, the age and construction/maintenance costs of the building, the local environment and perceptions of safety from crime. We use the gravity model to extract the pure location rent.
   
   
 # Conclusions
   
-  We have shown that the gravity model can be calibrated against the balancing factors. This should not be a surprise since the more usual method of calibration against mean trip cost uses only one parameter whereas the the number of (origin) balancing factors equals the number of zones. We have shown that the J-divergence is an effective statistic to minise in order to achieve a good fit. We have demonstrated theoretically the relation between balancing factors and location rent which we argue is a good measure of accessibility.  This has been used in an application to determine accessibilities of airBnB properties in London which seems to perform well and is shown elsewhere to perform rather better than other indices.
-  The use of this method in transportation practice may be not so much to relace mean trip cost calibration but rather to update models continuously as new rent patterns are observed.  Within LUTI practice it is not clear that the property price iterations are consistent with the gravity rents or by implication, the underlying model itself. The recognition of rent within the gravity model lays the basis for a dynamic based on trip cost reduction followed by increased rent and hence densification with consequent increase in the need for further trip cost reduction.
+  We have shown that the gravity model can be calibrated against the balancing factors. This should not be a surprise since the more usual method of calibration against mean trip cost uses only one parameter whereas the the number of (origin) balancing factors equals the number of zones. We have shown that the J-divergence is an effective statistic to minise in order to achieve a good fit. We have demonstrated theoretically the relation between balancing factors and location rent which we argue is a good measure of accessibility.  This has been used in an application to determine accessibilities of airBnB properties in London which seems to perform well and is shown elsewhere [@shabrina2020phd] to perform rather better than other indices.
+  The use of this method in transportation practice may be not so much to relace mean trip cost calibration but rather to update models continuously as new rent patterns are observed.  Within LUTI practice it is not clear that the property price iterations are consistent with the gravity rents or by implication, the underlying model itself. The recognition of rent within the gravity model lays the basis for a dynamic based on trip cost reduction followed by increased rent and hence densification with a consequent increase in the need for further trip cost reduction.
 
 # Appendix
 
