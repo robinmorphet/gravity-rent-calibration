@@ -1,0 +1,71 @@
+---
+title: "Using Bookdown for articles with equations and citations"
+author: "Robin Morphet"
+date: "01/10/2019"
+documentclass: article
+output: 
+  bookdown::pdf_document2:
+    toc: true
+    number_sections: true
+  bookdown::word_document2:
+    reference_docx: template.docx
+    fig_width: 4
+    fig_height: 3
+    fig_caption: true
+  bookdown::html_document2:
+    toc: false
+    number_sections: false
+    keep_md: true
+bibliography: [articleFWM.bibtex]
+biblio-style: apalike
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(here)
+```
+
+## R Bookdown
+*Warning: save this file safely as read only and use a copy of it if you wish to amend it into a document of your own*
+
+This is an R Bookdown document. Bookdown is a simple formatting syntax for authoring HTML, PDF, and MS Word books and documents. For more details on using R Bookdown see <https://bookdown.org/yihui/bookdown/>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r cars}
+summary(cars)
+```
+## File Structure
+This file is saved within a project file type(.Rproj). If you save this file on your machine the folder that you save it in will be the root for this particular project.  You can check that using
+```{r}
+here::here()
+```
+You may wish to create subdirectories for your bibtex bibliography of for your diagrams and illustrations.
+
+## Including equations
+\begin{equation}
+\label{eq:simple}
+y = x^2
+\end{equation}
+
+This equation will be automatically numbered in pdf format as equation \autoref{eq:simple} but not in html or in Word
+
+## Including Bibliographies
+A new heading "References" is placed at the end of this document. This should include all those references in "mybib.bib" which have been cited.
+
+### Citations
+
+You can cite articles thus @wickham2016r. More details can be found in <https://rmarkdown.rstudio.com/authoring_bibliographies_and_citations.html#specifying_a_bibliography>
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+
+plot(pressure)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+
+# References

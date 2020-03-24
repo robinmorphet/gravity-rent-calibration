@@ -1,0 +1,2574 @@
+#LyX file created by tex2lyx 2.3
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin F:/valise/Rprojects/Gravity model calibration by rent/
+\textclass article
+\begin_preamble
+\usepackage{ifxetex}
+\usepackage{ifluatex}\usepackage{fixltx2e}% provides \textsubscript
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \else % if luatex or xelatex
+  \ifxetex
+    \usepackage{mathspec}
+\else
+    \fi
+  \defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
+\fi
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+% use microtype if available
+\IfFileExists{microtype.sty}{%
+\usepackage{microtype}
+\UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+
+\urlstyle{same}  % don't use monospace font for urls
+\usepackage{grffile}
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+\IfFileExists{parskip.sty}{%
+\usepackage{parskip}
+}{% else
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+% Redefines (sub)paragraphs to behave more like sections
+\ifx\paragraph\undefined\else
+\let\oldparagraph\paragraph
+\renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+\let\oldsubparagraph\subparagraph
+\renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+
+%%% Use protect on footnotes to avoid problems with footnotes in titles
+\let\rmarkdownfootnote\footnote%
+\def\footnote{\protect\rmarkdownfootnote}
+
+%%% Change title format to be more compact
+\usepackage{titling}
+
+
+% Create subtitle command for use in maketitle
+\providecommand{\subtitle}[1]{
+  \posttitle{
+    \begin{center}\large#1\end{center}
+    }
+}
+
+\setlength{\droptitle}{-2em}
+
+  \title{Gravity Model Calibration by Rent}
+    \pretitle{\vspace{\droptitle}\centering\huge}
+  \posttitle{\par}
+    \author{Robin Morphet}
+    \preauthor{\centering\large\emph}
+  \postauthor{\par}
+      \predate{\centering\large\emph}
+  \postdate{\par}
+    \date{02/07/2019}
+
+
+
+\end_preamble
+\use_default_options false
+\maintain_unincluded_children false
+\language english
+\language_package none
+\inputencoding utf8
+\fontencoding T1
+\font_roman "lmodern" "default"
+\font_sans "default" "default"
+\font_typewriter "lmodern" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts true
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref true
+\pdf_title "Gravity Model Calibration by Rent"
+\pdf_author "Robin Morphet"
+\pdf_bookmarks 0
+\pdf_bookmarksnumbered 0
+\pdf_bookmarksopen 0
+\pdf_bookmarksopenlevel 1
+\pdf_breaklinks 1
+\pdf_pdfborder 1
+\pdf_colorlinks 0
+\pdf_backref section
+\pdf_pdfusetitle 0
+\papersize default
+\use_geometry true
+\use_package amsmath 2
+\use_package amssymb 2
+\use_package cancel 0
+\use_package esint 1
+\use_package mathdots 0
+\use_package mathtools 0
+\use_package mhchem 0
+\use_package stackrel 0
+\use_package stmaryrd 0
+\use_package undertilde 0
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 0
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 5
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+maketitle
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Verbatim
+## here() starts at F:/valise/Rprojects/Gravity model calibration by rent
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+hypertarget{introduction}{
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Introduction
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset CommandInset label
+LatexCommand label
+name "introduction"
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The maximum entropy spatial interaction model is derived and shown to incorporate both trip cost and von Thünen (Puu 1997) rent per trip. The similarity in result of calibrating against mean trip cost and rent is then demonstrated. This is shown by generating a sequence of models using given values of 
+\begin_inset Formula \(\beta\)
+\end_inset
+
+ and then calibrating these by rent to give a comparison of 
+\begin_inset Formula \(\beta\)
+\end_inset
+
+ values.
+\end_layout
+
+\begin_layout Itemize
+The paper is structured as follows:
+\end_layout
+
+\begin_deeper
+\begin_deeper
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+tightlist
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Section 2: The underlying gravity model is derived using maximum entropy 
+\end_layout
+
+\begin_layout Itemize
+Section 3: The classic von Thünen rent/trip cost model is outlined 
+\end_layout
+
+\begin_layout Itemize
+Section 4: The comparison of Legendre transforms in both gravity and von Thünen models allows us to identify the von Thünen rent within the gravity model 
+\end_layout
+
+\begin_layout Itemize
+Section 5: A description of the calibration method using J-divergence and balancing factors 
+\end_layout
+
+\begin_layout Itemize
+Section 6: A demonstration of calibrating a gravity model using balancing factors 
+\end_layout
+
+\begin_layout Itemize
+Section 7: A demonstration of the method being used to derive airBnB accessibilities to tourist destinations in London 
+\end_layout
+
+\begin_layout Itemize
+Section 8: A discussion of accessibility and its equivalence to rent 
+\end_layout
+
+\begin_layout Itemize
+Section 9: Conclusions 
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+hypertarget{deriving-the-model}{
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Deriving the Model
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset CommandInset label
+LatexCommand label
+name "deriving-the-model"
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The maximum entropy model is derived by Wilson (1970). We follow that process but work in probabilities rather than trips because we regard the latter as random variables whereas the probabilities are measures. We begin by constructing the Lagrangian 
+\begin_inset Formula \(\mathcal{L}\)
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset Formula \begin{align}
+\label{eq:lagrangian}
+\mathcal{L} =   \sum_{i=1}^{n}\sum_{j=1}^{n}p_{ij}lnp_{ij}+\lambda_{0}\sum_{i=1}^{n}\sum_{j=1}^{n}p_{ij}-1+\sum_{i=1}^{n}\lambda_{i}\sum_{j=1}^{n}p_{ij}-p_{i*}
++\sum_{j=1}^{n}\lambda_{j}\sum_{i=1}^{n}p_{ij}-p_{*j}+\beta\sum_{i=1}^{n}\sum_{j=1}^{n}p_{ij}c_{ij}-\overline{c}
+\end{align}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Differentiating 
+\begin_inset Formula \(\mathcal{L}\)
+\end_inset
+
+ with respect to 
+\begin_inset Formula \(p_{ij}\)
+\end_inset
+
+ and setting the result to zero delivers the maximum entropy model thus
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset Formula \begin{equation}
+\label{eq:basicmodel}
+p_{ij}=e^{-\lambda_{0}}e^{-\lambda_{i}}e^{-\lambda_{j}}e^{-\beta c_{ij}}
+\end{equation}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Summing both sides and recognising that 
+\begin_inset Formula \(\lambda_{0}\)
+\end_inset
+
+is a constant we find that 
+\begin_inset Formula \begin{equation}
+\label{eq:defnZ}
+e^{-\lambda_{0}}=\sum_{i=1}^{n}\sum_{j=1}^{n}e^{-\lambda_{i}}e^{-\lambda_{j}}e^{-\beta c_{ij}}=Z
+\end{equation}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We call the constant Z as it corresponds to the partition function of statistical physics and write the model as 
+\begin_inset Formula \begin{equation}
+\label{eq:model}
+p_{ij}=\frac{e^{-\lambda_{i}}e^{-\lambda_{j}}e^{-\beta c_{ij}}}{Z}
+\end{equation}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We now take logarithms, multiply by 
+\begin_inset Formula \(\frac{-p_{ij}}{\beta}\)
+\end_inset
+
+ and sum over 
+\begin_inset Formula \(i,j\)
+\end_inset
+
+ to get 
+\begin_inset Formula \begin{equation}
+\label{eq:thermoState}
+\frac{1}{\beta}S=U+PV-G
+\end{equation}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+where S is entropy, U is mean energy, PV is 
+\begin_inset Formula \(\frac{\lambda_{i}+\lambda_{j}}{\beta}\)
+\end_inset
+
+ and G is 
+\begin_inset Formula \(\ln Z\)
+\end_inset
+
+. These terms are used to show the correspondence of the model to the classical gas model (Callen 1985) where G is the Gibbs free energy, and PV the product of pressure, P and volume V.
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Graphics 
+	filename images/vtRentDistance.png
+
+\end_inset
+
+ 
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Von Thünen plot of Rent v Distance
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Graphics 
+	filename images/vtRentGenCost.png
+
+\end_inset
+
+ 
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+von Th{ünen plot of Rent v Generalised Cost
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+hypertarget{deriving-the-von-thuxfcnen-model}{
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Deriving the von Thünen Model
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset CommandInset label
+LatexCommand label
+name "deriving-the-von-thuxfcnen-model"
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The von Thünen model postulates a single city surrounded by a uniform plain. Farmers sell all their product in the city. The price of the product is determined by the cost of growing it, the cost of transporting it to market and the level of profit. In the model the markets clear and the rate of profit is constant This together with the fact that the model is deterministic and there is only a single purchaser implies that it is a model of perfect competition. A more detailed exposition can be found in Puu (1997). Figure 1 shows the rent curve against distance. The cost of transport for a farmer located at D is given by the slope at B. The overall cost othis produce is AO of which AR is rent. We may express this linear relationship as an equation thus
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset Formula \begin{equation}
+\label{eq:vTwithGC}
+rent=-generalised.cost + constant
+\end{equation}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+This is shown in Figure 2 which, by using generalised cost has made AR and OD equal.
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+hypertarget{matching-the-gravity-and-von-thuxfcnen-models}{
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Matching the Gravity and von Thünen Models
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset CommandInset label
+LatexCommand label
+name "matching-the-gravity-and-von-thuxfcnen-models"
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In the gravity model we have 
+\begin_inset Formula \(n\)
+\end_inset
+
+ destinations but in the only von Thünen model we have only one. The table of trips from origin to destination in the gravity model is replaced by a single column showing trips from the origins to the single centre. In the von Thünen model the origin zones are annular rings with the city at their centre. We therefore set up the model adapting equation 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+autoref
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+{
+\end_layout
+
+\end_inset
+
+eq:model
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+ with a single destination zone, 
+\begin_inset Formula \(k\)
+\end_inset
+
+, and without a destination constraint as all produce is sold.
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset Formula \begin{equation}
+\label{eq:basicmodelsingle}
+p_{ik}=\frac{e^{-\lambda_{i}}e^{-\beta c_{ik}}}{Z}
+\end{equation}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Of course, knowing the 
+\begin_inset Formula \(p_{i}\)
+\end_inset
+
+ we know the 
+\begin_inset Formula \(p_{ik}\)
+\end_inset
+
+ but for the moment we choose to ignore this and in fact all we need to know is that the 
+\begin_inset Formula \(p_{i}\)
+\end_inset
+
+ exist and are fixed. To make the comparison between the two models we exploit the Legendre transform (Kennerly 2011; Zia, Redish, and McKay 2009; Callen 1985) which underlies the structure of entropy maximising gravity models (Lesse 1982). Following Callen's (1985) exposition we consider a variable 
+\begin_inset Formula \(Y(X)\)
+\end_inset
+
+ and form its partial differential 
+\begin_inset Formula \(\frac{\delta Y}{\delta X}\)
+\end_inset
+
+ . The Legendre transform, 
+\begin_inset Formula \(\Psi\)
+\end_inset
+
+, is then given by
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset Formula \begin{equation}
+\label{eq:{eq:vTLegendre}}
+\Psi\left(Y\right)=-\frac{\delta Y}{\delta X}X+Y
+\end{equation}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Applying this equation to the straight line graph of figure 2 and equation 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+autoref
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+{
+\end_layout
+
+\end_inset
+
+eq:vTwithGC
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+ we get
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset Formula \begin{equation}
+\label{eq:vTLegendre2}
+\Psi\left(rent\right)=1.rent+generalised.cost
+\end{equation}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We now determine the equivalent Legendre transform using equation 6 but with 
+\begin_inset Formula \(p_{ik}=p_{i}\)
+\end_inset
+
+ a constant as is 
+\emph on
+Z
+\emph default
+. Rearranging and taking logarithms we get 
+\begin_inset Formula \(\ln Zp_{i}=-\lambda_{i}-\beta c_{ik}\)
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Differentiating with respect to generalised cost to get the Legendre transform gives
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset Formula \begin{equation}
+\label{eq:legendre}
+\Psi\left(c_{ik}\right)=\frac{\lambda_{i}}{\beta}+c_{ik}
+\end{equation}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Comparing 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+autoref
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+{
+\end_layout
+
+\end_inset
+
+eq:legendre
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+ and 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+autoref
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+{
+\end_layout
+
+\end_inset
+
+eq:vTLegendre2
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+ we see that
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset Formula \begin{equation}
+\label{eq:rentBF}
+rent=\frac{\lambda_{i}}{\beta}
+\end{equation}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The rent like the trip cost is a cost per trip. The identification of the balancing factors with rent has a somewhat chequered history. The relationship was initially suggested by Dieter (1962) but suffered widespread rejection (e.g.
+\begin_inset space ~
+
+\end_inset
+
+Kirby 1970) although it was resuscitated to an extent in Williams and Senior (1978) who interpreted 
+\begin_inset Formula \(\lambda_{i}\)
+\end_inset
+
+and 
+\begin_inset Formula \(\lambda_{j}\)
+\end_inset
+
+ as penalty functions in a non linear program method. Alonso (Alonso 1964) appealed to the von Thünen model in his analysis of the residential housing market around a single centre( implying perfect competition) using a bid rent curve of the kind shown in figure 1. The later identification of von Thünen rent with the balancing factors (Morphet 2012) also showed that the polycentric gravity model is a model of imperfect competition.
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+hypertarget{calibrating-the-gravity-model}{
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Calibrating the Gravity Model
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset CommandInset label
+LatexCommand label
+name "calibrating-the-gravity-model"
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The standard method for calibration, i.e.
+\begin_inset space ~
+
+\end_inset
+
+finding the value of 
+\begin_inset Formula \(\beta\)
+\end_inset
+
+ is to run the model with varying values of 
+\begin_inset Formula \(\beta\)
+\end_inset
+
+ in a search to find that value which gives a mean trip cost sufficiently close to the observed trip cost(Hyman and Wilson 1969; Dios Ortuzar and Willumsen 2011). The method of running the model is to use a Furness iteration (Furness 1965) to balance Origins and Destinations for a given value of 
+\begin_inset Formula \(\beta\)
+\end_inset
+
+. This introduces the balancing factors 
+\begin_inset Formula \(e^{-\lambda_{i}}e^{-\lambda_{j}}\)
+\end_inset
+
+ of equation 2 which relate to the rents of equation 10. The iteration provides a result in which the balancing factors are unique (Lemma 2 Evans 1970) which ensures that the resulting trip matrix, given 
+\begin_inset Formula \(\beta\)
+\end_inset
+
+, is also unique. In the method of calibration by rent, instead of matching observed and modelled mean trip costs, we match observed and modelled rents by minimising the J divergence (Rohde 2016) between them. The J divergence is an information based semimetric measure which satisfies all the conditions for a distance measure apart from the triangle inequality. In particular it is finite,symmetric and decomposable. The J divergence between two probability distributions,
+\begin_inset Formula \(p\left(x_{i}\right)\)
+\end_inset
+
+ and 
+\begin_inset Formula \(q\left(y_{i}\right)\)
+\end_inset
+
+ is given by
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset Formula \begin{equation}
+\label{eq:jeffries}
+J=\frac{1}{2}\sum_{i}\left(p\left(x_{i}\right)-q\left(y_{i}\right)\right)\ln\left(\frac{p\left(x_{i}\right)}{q\left(y_{i}\right)}\right)
+\end{equation}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+hypertarget{a-demonstration}{
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+A Demonstration
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset CommandInset label
+LatexCommand label
+name "a-demonstration"
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In this demonstration we use a small model for which we know the value of 
+\begin_inset Formula \(\beta\)
+\end_inset
+
+ is 0.1. We then extract the origin balancing factors which will act as our target distribution. The model is then run for for several values of 
+\begin_inset Formula \(\beta\)
+\end_inset
+
+ which are the compared using J divergence and the value of 
+\begin_inset Formula \(\beta\)
+\end_inset
+
+ estimated at the point of minimum divergence.Our cost data is given by the 5x5 table:
+\end_layout
+
+\begin_layout Verbatim
+##      [,1] [,2] [,3] [,4] [,5]
+\end_layout
+
+\begin_layout Verbatim
+## [1,] 10.0 14.1 14.1 14.1 14.1
+\end_layout
+
+\begin_layout Verbatim
+## [2,] 14.1 10.0 20.0 28.3 20.0
+\end_layout
+
+\begin_layout Verbatim
+## [3,] 14.1 20.0 10.0 20.0 28.3
+\end_layout
+
+\begin_layout Verbatim
+## [4,] 14.1 28.3 20.0 10.0 20.0
+\end_layout
+
+\begin_layout Verbatim
+## [5,] 14.1 20.0 28.3 20.0 10.0
+\end_layout
+
+\begin_layout Standard
+the origins Oi and destinations Dj are given by
+\end_layout
+
+\begin_layout Verbatim
+## [1]  500  500 3000 5000 1000
+\end_layout
+
+\begin_layout Verbatim
+## [1] 5000 3000 1000  500  500
+\end_layout
+
+\begin_layout Standard
+We now set the deterrence function matrix
+\end_layout
+
+\begin_layout Verbatim
+##           [,1]       [,2]       [,3]       [,4]       [,5]
+\end_layout
+
+\begin_layout Verbatim
+## [1,] 0.3678794 0.24414328 0.24414328 0.24414328 0.24414328
+\end_layout
+
+\begin_layout Verbatim
+## [2,] 0.2441433 0.36787944 0.13533528 0.05901285 0.13533528
+\end_layout
+
+\begin_layout Verbatim
+## [3,] 0.2441433 0.13533528 0.36787944 0.13533528 0.05901285
+\end_layout
+
+\begin_layout Verbatim
+## [4,] 0.2441433 0.05901285 0.13533528 0.36787944 0.13533528
+\end_layout
+
+\begin_layout Verbatim
+## [5,] 0.2441433 0.13533528 0.05901285 0.13533528 0.36787944
+\end_layout
+
+\begin_layout Standard
+We now iterate the deterrence matrix to the row an column totals which are expressed as probabilities rather than trips and we extract the origin balancing factors:
+\end_layout
+
+\begin_layout Verbatim
+## [1] 0.1599941 0.1609328 1.4652613 3.2364149 0.5107356
+\end_layout
+
+\begin_layout Standard
+We now know our target values of 
+\begin_inset Formula \(\beta\)
+\end_inset
+
+ and of the origin balancing factors. It remains for us to construct a search for the value of 
+\begin_inset Formula \(\beta\)
+\end_inset
+
+ knowing only the origin balancing factors.
+\end_layout
+
+\begin_layout Standard
+This gives us a list of balancing factors for each value of beta. We now compute the value of the J divergence for each set of balancing factors. We form the latter into a dataframe the head of which is shown below
+\end_layout
+
+\begin_layout Verbatim
+##            [,1]       [,2]      [,3]      [,4]       [,5]
+\end_layout
+
+\begin_layout Verbatim
+## [1,] 0.03231410 0.03367043 0.2724989 0.5667591 0.09475745
+\end_layout
+
+\begin_layout Verbatim
+## [2,] 0.03195938 0.03320863 0.2717458 0.5685563 0.09452991
+\end_layout
+
+\begin_layout Verbatim
+## [3,] 0.03160807 0.03274703 0.2709891 0.5703576 0.09429821
+\end_layout
+
+\begin_layout Verbatim
+## [4,] 0.03126012 0.03228583 0.2702288 0.5721629 0.09406241
+\end_layout
+
+\begin_layout Verbatim
+## [5,] 0.03091547 0.03182521 0.2694649 0.5739719 0.09382257
+\end_layout
+
+\begin_layout Verbatim
+## [6,] 0.03057408 0.03136537 0.2686974 0.5757845 0.09357873
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset Graphics 
+	filename Rent-Calibration-Document_files/figure-latex/divCalc-1.pdf
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+What we have shown in this demonstration is that we can calibrate a gravity model knowing only the balancing factors for the origins. We know however, from equation 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+autoref
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+{
+\end_layout
+
+\end_inset
+
+eq:rentBF
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+ that the balancing factors are a function of rent. In the following section we explore an application in which we construct a surrogate for rent from which is then compared with the balancing factors. We then seek a minimum J fit as before.
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+hypertarget{an-application}{
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+An application
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset CommandInset label
+LatexCommand label
+name "an-application"
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In this application we calibrate using observed rent data as a target in contrast to the synthesised balancing factor data used in the previous section. The data describes the relation of airBnB sites to popular tourist destination sites in London. The data is at LSOA level which means that some LSOAs have zero airBnB sites and are therefore ignored.
+\end_layout
+
+\begin_layout Standard
+We first read in our data using a function `indata'
+\end_layout
+
+\begin_layout Standard
+We then determine an index of LSOAs which have zero airBnB sites and remove them from the data already read in.
+\end_layout
+
+\begin_layout Standard
+The cost data is journey time data from the LSOAs to the tourist attractions. This is read in as before, but with the zero LSOAs already removed. The times are then converted to minutes.
+\end_layout
+
+\begin_layout Standard
+The origins and destinations are then converted to probabilites as the model is defined in terms of probabilities as in equation 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+autoref
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+{
+\end_layout
+
+\end_inset
+
+eq:lagrangian
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We now construct the target rent which we are trying to match with our model. This is the cost per bed times the number of beds. This gives us a total rent for each LSOA which we then convert to probabilities.
+\end_layout
+
+\begin_layout Standard
+The search range for 
+\begin_inset Formula \(\beta\)
+\end_inset
+
+ is then generated. The particular range chosen is determined by trial and error but in general we would expect to find a value between 0 and 2, (Hyman and Wilson 1969). The model is then run producing balancing factors and a matrix of trips. For each value of 
+\begin_inset Formula \(\beta\)
+\end_inset
+
+ a set of statistics is produced. Of most concernto us here are the J-divergence
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset Graphics 
+	filename Rent-Calibration-Document_files/figure-latex/getBetaAndRun-1.pdf
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+hypertarget{accessibility}{
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Accessibility
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset CommandInset label
+LatexCommand label
+name "accessibility"
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The early reference by Hansen(1959) to accessibility gave a definition which in terms of the model defined in 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+autoref
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+{
+\end_layout
+
+\end_inset
+
+eq:basicmodelsingle
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+ can be written
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset Formula \begin{equation}
+\label{eq:hansen}
+ a_{i}={\displaystyle \sum_{i}^{n}}p_{j}e^{-\beta c_{ij}}
+\end{equation}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+where 
+\begin_inset Formula \(a_{i}\)
+\end_inset
+
+ is accessibility.
+\end_layout
+
+\begin_layout Standard
+This gravity formulation may be contrasted to Hansen's original in which 
+\begin_inset Formula \(c_{ij}\)
+\end_inset
+
+ was distance and 
+\begin_inset Formula \(\alpha\)
+\end_inset
+
+ equalled 
+\begin_inset Formula \(2\)
+\end_inset
+
+ 
+\begin_inset Formula \begin{equation}
+\label{eq:hansen2}
+ a_{i}=\sum_{j}\dfrac{D_{j}}{c_{ij}^{\alpha}}
+\end{equation}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The deterrence function in 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+autoref
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+{
+\end_layout
+
+\end_inset
+
+eq:hansen
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+ reflects the diminishing number of trips as 
+\begin_inset Formula \(c_{ij}\)
+\end_inset
+
+ increases whereas in 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+autoref
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+{
+\end_layout
+
+\end_inset
+
+eq:hansen2
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+ the cost function represents a diminishing appreciation with distance of the destination potentials. Hansen is arguing on intuitive grounds for a particular set of preferences whereas in the gravity model these are more akin to preferences revealed under the constraints of the model.
+\end_layout
+
+\begin_layout Standard
+In practice this measure has been found unsatisfactory (Dios Ortuzar and Willumsen 2011). A review by Srour et al (2002) compared accessibility measures with empirically estimated land values confirmed the link between land value and accessibility, particularly to jobs. We are more fortunate in being able to derive the relationship theoretically from the von Thünen assumptions within the gravity model. Srour was less successful in identifying the appropriate measure of accessibility. The use of a logsum method proved problematic. Niemeyer (1997) argued for a logsum method suggesting that the logsum measure of consumer surplus equated to accessibilty. If we consider accessibility as rent then this is only true if the model is one of perfect competition i.e.
+\begin_inset space ~
+
+\end_inset
+
+of zero transport cost. The gravity model, however, is a model of imperfect competition. The logsum approach is one of utility or value maximisation with the contentions that this brings whilst the gravity model, through rent, is an approach based on cost.
+\end_layout
+
+\begin_layout Standard
+It may be asked, in relation to the application above why, when we already have a proxy for rent, do we model rent at all? The answer is that the rent we are modelling is a pure location rent. The rents observed may reflect many other hedonic attributes such as the presence of local facilities, the age and construction/maintenance costs of the building, the local environment and perceptions of safety from crime. We use the gravity model to extract the pure location rent.
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+hypertarget{conclusions}{
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Conclusions
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset CommandInset label
+LatexCommand label
+name "conclusions"
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We have shown that the gravity model can be calibrated against the balancing factors. This should not be a surprise since the more usual method of calibration against mean trip cost uses only one parameter whereas the the number of (origin) balancing factors equals the number of zones. We have shown that the J-divergence is an effective statistic to minise in order to achieve a good fit. We have demonstrated theoretically the relation between balancing factors and location rent which we argue is a good measure of accessibility. This has been used in an application to determine accessibilities of airBnB properties in London which seems to perform well and is shown elsewhere to perform rather better than other indices. The use of this method in transportation practice may be not so much to relace mean trip cost calibration but rather to update models continuously as new rent patterns are observed. Within LUTI practice it is not clear that the property price iterations are consistent with the gravity rents or by implication, the underlying model itself. The recognition of rent within the gravity model lays the basis for a dynamic based on trip cost reduction followed by increased rent and hence densification with consequent increase in the need for further trip cost reduction.
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+hypertarget{references}{
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section*
+References
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset CommandInset label
+LatexCommand label
+name "references"
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+addcontentsline{toc}{section}{References}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+hypertarget{refs}{
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+leavevmode
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+hypertarget{ref-alonso64}{
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+Alonso, W. 1964. 
+\emph on
+Location and Land Use. Toward a General Theory of Land Rent
+\emph default
+. Cambridge, Mass: Harvard University Press.
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+leavevmode
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+hypertarget{ref-callen85}{
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+Callen, H. B. 1985. 
+\emph on
+Thermodynamics and an Introduction to Thermostatistics
+\emph default
+. Second. John Wiley.
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+leavevmode
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+hypertarget{ref-dieter62}{
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+Dieter, K. H. 1962. 
+\begin_inset Quotes eld
+\end_inset
+
+Distribution of Work Trips in Toronto.
+\begin_inset Quotes erd
+\end_inset
+
+ 
+\emph on
+Journal of the City Planning Division
+\emph default
+, Proceedings of the american society of civil engineers, 1: 9–28.
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+leavevmode
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+hypertarget{ref-ortuzar2011modelling}{
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+Dios Ortuzar, Juan de, and Luis G Willumsen. 2011. 
+\emph on
+Modelling Transport
+\emph default
+. John Wiley & sons.
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+leavevmode
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+hypertarget{ref-evans70p19}{
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+Evans, A. W. 1970. 
+\begin_inset Quotes eld
+\end_inset
+
+Some properties of trip distribution methods.
+\begin_inset Quotes erd
+\end_inset
+
+ 
+\emph on
+Transportation Research
+\emph default
+ 4 (1): 19–36.
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+leavevmode
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+hypertarget{ref-furness65}{
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+Furness, K. P. 1965. 
+\begin_inset Quotes eld
+\end_inset
+
+Time Function Iteration.
+\begin_inset Quotes erd
+\end_inset
+
+ 
+\emph on
+Traffic Engineering and Control
+\emph default
+ 7 (7): 458–60.
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+leavevmode
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+hypertarget{ref-hansen1959accessibility}{
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+Hansen, Walter G. 1959. 
+\begin_inset Quotes eld
+\end_inset
+
+How Accessibility Shapes Land Use.
+\begin_inset Quotes erd
+\end_inset
+
+ 
+\emph on
+Journal of the American Institute of Planners
+\emph default
+ 25 (2): 73–76.
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+leavevmode
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+hypertarget{ref-hymanwilson69}{
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+Hyman, G. M., and A. G. Wilson. 1969. 
+\begin_inset Quotes eld
+\end_inset
+
+The effects of changes in travel costs on trip distribution and modal split.
+\begin_inset Quotes erd
+\end_inset
+
+ 
+\emph on
+High Speed Ground Transportation Journal
+\emph default
+, 79–85.
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+leavevmode
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+hypertarget{ref-kennerly11}{
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+Kennerly, S. 2011. 
+\begin_inset Quotes eld
+\end_inset
+
+A graphical derivation of the Legendre transform.
+\begin_inset Quotes erd
+\end_inset
+
+ 
+\begin_inset Flex URL
+status collapsed
+
+\begin_layout Plain Layout
+https://sites.google.com/site/samkennerly/Legendre.pdf?attredirects=0
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+leavevmode
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+hypertarget{ref-kirby70}{
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+Kirby, H. R. 1970. 
+\begin_inset Quotes eld
+\end_inset
+
+Normalizing Factors of the Gravity Model – An Interpretation.
+\begin_inset Quotes erd
+\end_inset
+
+ 
+\emph on
+Transportation Research
+\emph default
+ 4: 37–50.
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+leavevmode
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+hypertarget{ref-lesse82}{
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+Lesse, P. F. 1982. 
+\begin_inset Quotes eld
+\end_inset
+
+A phenomenological theory of socioeconomic systems with spatial interactions.
+\begin_inset Quotes erd
+\end_inset
+
+ 
+\emph on
+Environment and Planning A
+\emph default
+ 14 (7): 869–88.
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+leavevmode
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+hypertarget{ref-morphet2012thunen}{
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+Morphet, R. 2012. 
+\begin_inset Quotes eld
+\end_inset
+
+Von Thunen's Legendre Transform: Urban Rent and the Interaction Model.
+\begin_inset Quotes erd
+\end_inset
+
+ Working Paper 193. CASA Working Papers. UCL, London: Bartlett Centre for Advanced Spatial Analysis. 
+\begin_inset Flex URL
+status collapsed
+
+\begin_layout Plain Layout
+https://www.ucl.ac.uk/bartlett/casa/publications/2013/jul/casa-working-paper-193
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+leavevmode
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+hypertarget{ref-niemeier1997accessibility}{
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+Niemeier, Debbie A. 1997. 
+\begin_inset Quotes eld
+\end_inset
+
+Accessibility: An Evaluation Using Consumer Welfare.
+\begin_inset Quotes erd
+\end_inset
+
+ 
+\emph on
+Transportation
+\emph default
+ 24 (4): 377–96.
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+leavevmode
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+hypertarget{ref-puu97}{
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+Puu, T. 1997. 
+\begin_inset Quotes eld
+\end_inset
+
+Mathematical Location and Land Use Theory.
+\begin_inset Quotes erd
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+leavevmode
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+hypertarget{ref-rohde2016j}{
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+Rohde, Nicholas. 2016. 
+\begin_inset Quotes eld
+\end_inset
+
+J-Divergence Measurements of Economic Inequality.
+\begin_inset Quotes erd
+\end_inset
+
+ 
+\emph on
+Journal of the Royal Statistical Society: Series A (Statistics in Society)
+\emph default
+ 179 (3): 847–70.
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+leavevmode
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+hypertarget{ref-srour2002accessibility}{
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+Srour, Issam M, Kara M Kockelman, and Travis P Dunn. 2002. 
+\begin_inset Quotes eld
+\end_inset
+
+Accessibility Indices: Connection to Residential Land Prices and Location Choices.
+\begin_inset Quotes erd
+\end_inset
+
+ 
+\emph on
+Transportation Research Record
+\emph default
+ 1805 (1): 25–34.
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+leavevmode
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+hypertarget{ref-williamssenior78}{
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+Williams, H. C. W. L., and M. L. Senior. 1978. 
+\begin_inset Quotes eld
+\end_inset
+
+Accessibility, Spatial Interaction and the Evaluation of Land Use-Transportation Plans.
+\begin_inset Quotes erd
+\end_inset
+
+ In 
+\emph on
+Spatial Interaction Theory and Planning Models
+\emph default
+, edited by A. Karlqvist, L. Lundqvist, F. Snickars, and J. W. Weibull, 253–87. Amsterdam: North Holland.
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+leavevmode
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+hypertarget{ref-wilson70}{
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+Wilson, A. G. 1970. 
+\emph on
+Entropy in urban and regional modelling
+\emph default
+. London: Pion.
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+leavevmode
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+hypertarget{ref-zia2009making}{
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+Zia, Royce KP, Edward F Redish, and Susan R McKay. 2009. 
+\begin_inset Quotes eld
+\end_inset
+
+Making Sense of the Legendre Transform.
+\begin_inset Quotes erd
+\end_inset
+
+ 
+\emph on
+American Journal of Physics
+\emph default
+ 77 (7): 614–22.
+\end_layout
+
+\end_body
+\end_document
