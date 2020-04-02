@@ -3,7 +3,7 @@
 ### About
 This repository contains the method for analysis using gravity model by rent undertaken for "CASA Working Paper: Gravity model calibration by rent". Please reference this published version whenever possible.
 
-The analysis is carried out using a set of data as follow:
+The analysis is carried out using a set of data as follows:
 #### Data:
 ##### 1. base_destination_data.csv
 Airbnb data aggregated to Lower Super Output Area (LSOA) level (2018 - from Inside Airbnb http://insideairbnb.com) as "origins"
@@ -12,6 +12,6 @@ Number of visits to tourists attraction points (from Visit Britain 2015 https://
 ##### 3. trip_cost_matrix_stripped.csv
 Travel time data calculated by generating travel time between the origins centroid and the destinations points using Open Trip Planner application as "trip costs"
 
-
+To run the R code you will need to load the R packages 'here' and 'rlist'
 
 
