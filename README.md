@@ -1,7 +1,7 @@
 # Rproject Gravity model calibration by rent
 
 ### About
-This repository contains the method for analysis using gravity model by rent undertaken for "CASA Working Paper: Gravity model calibration by rent". Please reference this published version whenever possible using the reference "Morphet, R. and Shabrina, Z., 2020. Gravity Model Calibration by Rent. CASA Working Paper 223".
+This repository contains the method for analysis using gravity model by rent undertaken for the CASA Working Paper "Gravity model calibration by rent". Please reference this published version whenever possible using the reference "Morphet, R. and Shabrina, Z., 2020. Gravity Model Calibration by Rent. CASA Working Paper 223".
 
 The analysis is carried out using a set of data as follows:
 #### Data:
